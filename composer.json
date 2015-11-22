@@ -1,0 +1,25 @@
+{
+  "name": "aw/callbacks",
+  "description": "Family of callback wrappers",
+  "version": "0.0.1",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/burdiuz/php-object"
+    }
+  ],
+  "require":{
+    "aw/object":"0.0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "aw\\": "source/aw/"
+    },
+    "psr-0": {
+      "aw\\": "source/aw/",
+      "aw\\callbacks\\": "source/aw/callbacks/"
+    }
+  }
+}

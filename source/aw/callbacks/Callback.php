@@ -2,24 +2,20 @@
 
 namespace aw\callbacks {
 
-	abstract class Callback extends \aw\Object implements IHandler{
+	abstract class Callback extends \aw\Object implements ICallback{
 		protected $_target;
 		public function __construct($target){
 			$this->_target = $target;
 		}
-		public function call($arguments){
-			throw new Exception('Handler Error: Handler.call() method must be overridden');
-		}
+
 		public function apply(){
-			throw new Exception('Handler Error: Handler.apply() method must be overridden');
+			return $this->call(func_get_args());
 		}
-		public function caller(){
-			return array($this, 'apply');
-		}
+
+		public abstract function call($arguments);
+
 		public function __destruct(){
 			unset($this->_target);
 		}
-	private var $_lastArgs;
-	private var $_lastResult;
 	}
 }

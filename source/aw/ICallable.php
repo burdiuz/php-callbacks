@@ -12,10 +12,5 @@ namespace aw {
          */
         public function apply();
 
-        /**
-         * Callback array for call_user_func() and call_user_func_array() functions.
-         * @return array
-         */
-        public function caller():array;
     }
 }

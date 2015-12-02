@@ -1,7 +1,11 @@
 <?php
+/**
+ * Created by Oleg Galaburda on 02.12.15.
+ */
 
 namespace aw\callbacks {
-	abstract class HandlerCollection extends \aw\Object implements ICallback {
+	use \aw\Object;
+	abstract class HandlerCollection extends Object implements ICallback {
 		protected $_items = array();
 		public function getItemAt($index){
 			return isset($this->_items[$index]) ? $this->_items[$index] : false;

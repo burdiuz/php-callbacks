@@ -1,10 +1,13 @@
 <?php
+/**
+ * Created by Oleg Galaburda on 02.12.15.
+ */
 
 namespace aw\callbacks {
 	class PropertyCallback extends Callback {
 		protected $_name;
 
-		public function __construct($target, $name) {
+		public function __construct(&$target, $name) {
 			parent::__construct($target);
 			$this->_name = $name;
 		}

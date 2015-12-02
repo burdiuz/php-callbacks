@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
+        <testsuite name="aw\CallableCollection">
+            <file>tests/aw/CallableCollectionTest.php</file>
+        </testsuite>
         <testsuite name="aw\callbacks\FunctionCallback">
-            <file>tests/FunctionCallbackTest.php</file>
+            <file>tests/aw/callbacks/FunctionCallbackTest.php</file>
         </testsuite>
         <testsuite name="aw\callbacks\MethodCallback">
-            <file>tests/MethodCallbackTest.php</file>
+            <file>tests/aw/callbacks/MethodCallbackTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

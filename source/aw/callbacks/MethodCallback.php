@@ -7,13 +7,16 @@ namespace aw\callbacks {
 
 	class MethodCallback extends Callback {
 		private $_name;
+		private $_defaultArgs;
 
-		public function __construct($target, $name) {
+		public function __construct($target, $name, array $defaultArgs = array()) {
 			parent::__construct($target);
 			$this->_name = $name;
+			$this->_defaultArgs = $defaultArgs;
 		}
 
 		public function call(array $args = array()) {
+			$args =
 			$callee = $this->_target ? array($this->_target, $this->_name) : $this->_name;
 			return call_user_func_array($callee, $args);
 		}

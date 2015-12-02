@@ -19,9 +19,18 @@ namespace aw\callbacks {
          * @test
          */
         public function instanceTest() {
-
+            $target = new MethodTest();
+            $callback = new MethodCallback($target, 'increment');
         }
 
+        public function defaultArgsTest() {
+            $target = new MethodTest();
+            $callback = new MethodCallback($target, 'increment');
+        }
+
+        /**
+         * @test
+         */
         public function staticTest() {
 
         }

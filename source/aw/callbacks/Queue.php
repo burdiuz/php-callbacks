@@ -6,6 +6,13 @@
 namespace aw\callbacks;
 
 // will execute one by one passing previous result as next callback argument
-class Queue {
+use aw\CallableCollection;
 
+class Queue extends CallableCollection implements ICallback {
+    public function call(array $args) {
+
+    }
+    public function __invoke(...$args) {
+
+    }
 }

@@ -13,6 +13,12 @@ namespace aw\callbacks {
 
     use \PHPUnit_Framework_TestCase as TestCase;
 
+    class Math {
+        static function decrement($arg){
+            return --$arg;
+        }
+    }
+
     class FunctionCallbackTest extends TestCase {
         /**
          * @test
@@ -35,8 +41,19 @@ namespace aw\callbacks {
         /**
          * @test
          */
-        public function staticTest() {
+        public function defaultParamsTest() {
+            $callback = new FunctionCallback(function ($value) {
+                return ++$value;
+            });
+            $this->assertEquals(3, $callback(2));
+        }
 
+        /**
+         * @test
+         */
+        public function staticTest() {
+            $callback = new FunctionCallback('\aw\callbacks\Math::decrement');
+            $this->assertEquals(3, $callback(4));
         }
     }
 }

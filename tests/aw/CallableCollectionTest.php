@@ -25,6 +25,10 @@ namespace aw{
             $collection = new CallableCollection();
             $collection[] = function(){};
             foreach($collection as $key => $value){
+
+
+
+                
                 echo $key;
             }
         }

@@ -3,10 +3,17 @@
  * Created by Oleg Galaburda on 03.12.15.
  */
 
+namespace aw\callbacks {
 
-namespace aw;
+  use \PHPUnit_Framework_TestCase as TestCase;
 
+  class CallableSequenceTest extends TestCase {
+    public function setUp() {
 
-class CallableSequenceTest {
+    }
 
+    public function test() {
+
+    }
+  }
 }

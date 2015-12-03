@@ -4,8 +4,14 @@
  */
 
 namespace aw\callbacks {
-    interface ICallback {
-        public function call(array $args);
-        public function __invoke(...$args);
-    }
+  interface ICallback {
+    public function call(array $args);
+
+    /**
+     * Callback should be callable
+     * @param ...$args
+     * @return mixed
+     */
+    public function __invoke(...$args);
+  }
 }

@@ -3,10 +3,17 @@
  * Created by Oleg Galaburda on 03.12.15.
  */
 
+namespace aw\callbacks {
 
-namespace aw;
+  use \PHPUnit_Framework_TestCase as TestCase;
 
+  class IteratorAggregateItemsArrayTraitTest extends TestCase {
+    public function setUp() {
 
-class IteratorAggregateItemsArrayTraitTest {
+    }
 
+    public function test() {
+
+    }
+  }
 }

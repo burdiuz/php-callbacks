@@ -9,15 +9,15 @@ namespace aw\callbacks {
 
 		public function __construct(&$target, $name) {
 			parent::__construct($target);
+			if(is_array($target) || is_object($target)){
+				throw new InvalidArgumentException('Property target must be an array or object.');
+			}
 			$this->_name = $name;
 		}
 
-		public function call($arguments) {
-			if (!$arguments || count($arguments) < 1) {
-				throw new InvalidArgumentException('Must be called with single argument with updated property value.');
-			}
-			$value = $arguments[0];
+		public function call(array $args = array()) {
 			$result = null;
+			$value = VariableCallback::getArgumentValue($args);
 			if(is_array($this->_target)){
 				$this->_target[$this->_name] = $value;
 			}else{

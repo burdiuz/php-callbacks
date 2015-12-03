@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="aw\CallableCollection">
-            <file>tests/aw/CallableCollectionTest.php</file>
-        </testsuite>
         <testsuite name="aw\callbacks\FunctionCallback">
             <file>tests/aw/callbacks/FunctionCallbackTest.php</file>
         </testsuite>
         <testsuite name="aw\callbacks\MethodCallback">
             <file>tests/aw/callbacks/MethodCallbackTest.php</file>
+        </testsuite>
+        <testsuite name="aw\callbacks\PropertyCallback">
+            <file>tests/aw/callbacks/PropertyCallbackTest.php</file>
+        </testsuite>
+        <testsuite name="aw\callbacks\VariableCallback">
+            <file>tests/aw/callbacks/VariableCallbackTest.php</file>
+        </testsuite>
+        <testsuite name="aw\callbacks\OutputCallback">
+            <file>tests/aw/callbacks/OutputCallbackTest.php</file>
+        </testsuite>
+        <testsuite name="aw\ArrayAccessItemsArrayTrait">
+            <file>tests/aw/ArrayAccessItemsArrayTraitTest.php</file>
+        </testsuite>
+        <testsuite name="aw\IteratorAggregateItemsArrayTrait">
+            <file>tests/aw/IteratorAggregateItemsArrayTraitTest.php</file>
+        </testsuite>
+        <testsuite name="aw\CallableCollection">
+            <file>tests/aw/CallableCollectionTest.php</file>
+        </testsuite>
+        <testsuite name="aw\CallableQueue">
+            <file>tests/aw/CallableCollectionTest.php</file>
+        </testsuite>
+        <testsuite name="aw\CallableSequence">
+            <file>tests/aw/CallableCollectionTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

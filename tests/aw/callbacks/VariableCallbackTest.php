@@ -7,7 +7,7 @@ namespace aw\callbacks {
 
   use \PHPUnit_Framework_TestCase as TestCase;
 
-  class ArrayAccessItemsArrayTraitTest extends TestCase {
+  class VariableCallbackTest extends TestCase {
     public function setUp() {
 
     }

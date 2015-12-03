@@ -28,8 +28,6 @@ namespace aw {
       };
       foreach ($collection as $key => $value) {
 
-
-        echo $key;
       }
     }
 

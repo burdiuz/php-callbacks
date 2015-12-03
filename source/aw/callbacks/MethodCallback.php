@@ -16,7 +16,7 @@ namespace aw\callbacks {
     }
 
     public function call(array $args = array()) {
-      $args = $this->_defaultArgs + $args;
+      $args += $this->_defaultArgs;
       $callee = $this->_target ? array($this->_target, $this->_name) : $this->_name;
       return call_user_func_array($callee, $args);
     }

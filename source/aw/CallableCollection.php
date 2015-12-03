@@ -3,10 +3,9 @@
  * Created by Oleg Galaburda on 03.12.15.
  */
 
-
 namespace aw{
 
-  use \Exception;
+  use \InvalidArgumentException;
   use \IteratorAggregate;
   use \ArrayAccess;
 
@@ -18,9 +17,9 @@ namespace aw{
 
     public function addItem(callable $item) {
       if ($item === $this) {
-        throw new Exception('Collection cannot add itself.');
+        throw new InvalidArgumentException('Collection cannot add itself.');
       } else if ($this->hasItem($item)) {
-        throw new Exception('Collection cannot add same item twice.');
+        throw new InvalidArgumentException('Collection cannot add same item twice.');
       } else {
         $this->_items[] = $item;
       }
@@ -31,7 +30,7 @@ namespace aw{
       if ($index <= $count) {
         $this->_items[$index] = $value;
       } else {
-        throw new Exception('Adding items only allowed with [] operator.');
+        throw new InvalidArgumentException('Adding items only allowed with [] operator.');
       }
     }
 

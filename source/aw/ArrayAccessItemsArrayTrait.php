@@ -3,8 +3,10 @@
  * Created by Oleg Galaburda on 03.12.15.
  */
 
+namespace aw {
 
-namespace aw{
+  use \InvalidArgumentException;
+
   trait ArrayAccessItemsArrayTrait {
     public function offsetExists($offset) {
       return isset($this->_items[$offset]);
@@ -15,12 +17,9 @@ namespace aw{
     }
 
     public function offsetSet($offset, $value) {
-      if(!is_callable($value)){
-        throw new Exception('Only callable values are allowed.');
-      }
-      if(is_null($offset)){
+      if (is_null($offset)) {
         $this->addItem($value);
-      }else{
+      } else {
         $this->setItem($offset, $value);
       }
     }

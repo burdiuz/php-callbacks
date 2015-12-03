@@ -7,6 +7,10 @@ namespace {
   function increment($arg) {
     return ++$arg;
   }
+
+  function defArgs(...$args) {
+    return $args;
+  }
 }
 
 namespace aw\callbacks {
@@ -20,38 +24,25 @@ namespace aw\callbacks {
   }
 
   class FunctionCallbackTest extends TestCase {
-    /**
-     * @test
-     */
-    public function functionNameTest() {
+
+    public function testFunctionName() {
       $callback = new FunctionCallback('\increment');
       $this->assertEquals(3, $callback(2));
     }
 
-    /**
-     * @test
-     */
-    public function closureTest() {
+    public function testClosure() {
       $callback = new FunctionCallback(function ($value) {
         return ++$value;
       });
       $this->assertEquals(3, $callback(2));
     }
 
-    /**
-     * @test
-     */
-    public function defaultParamsTest() {
-      $callback = new FunctionCallback(function ($value) {
-        return ++$value;
-      });
-      $this->assertEquals(3, $callback(2));
+    public function testDefaultParams() {
+      $callback = new FunctionCallback('defArgs', [1, 2, 3, 4]);
+      $this->assertEquals(['a', 'b', 3, 4], $callback('a', 'b'));
     }
 
-    /**
-     * @test
-     */
-    public function staticTest() {
+    public function testStatic() {
       $callback = new FunctionCallback('\aw\callbacks\Math::decrement');
       $this->assertEquals(3, $callback(4));
     }

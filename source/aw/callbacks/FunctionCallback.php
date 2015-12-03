@@ -26,7 +26,7 @@ namespace aw\callbacks {
      */
     public function call(array $args = array()) {
       $result = null;
-      $args = $this->_defaultArgs + $args;
+      $args += $this->_defaultArgs;
       $func = $this->_func;
       if (is_callable($func)) {
         $result = $func(...$args);

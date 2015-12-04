@@ -1,6 +1,13 @@
 ##PHP-Callbacks
 
 Family of Callback Wrappers allowing to store chains of delayed calls that can be started by event.
+* FunctionCallback - calls global function or static method.
+* MethodCallback - calls instance or static method.
+* OutputCallback - outputs all arguments in JSON format.
+* PropertyCallback - stores first argument as property value, works with static properties.
+* VariableCallback - stores first argument as variable value, works with static properties.
+* CallableQueue - calls stored callbacks passing previous result as argument, returns result of last callback.
+* CallableSequence - calls stored callbacks with same arguments, returns result of last callback.
 ```php
 $variable = 'value';
 $callback = new \aw\callbacks\VariableCallback('variable');

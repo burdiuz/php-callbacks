@@ -1,7 +1,9 @@
-##PHP-Callbacks
+<?php
+/**
+ * Created by Oleg Galaburda on 04.12.15.
+ */
+require_once 'vendor/autoload.php';
 
-Family of Callback Wrappers allowing to store chains of delayed calls that can be started by event.
-```php
 $variable = 'value';
 $callback = new \aw\callbacks\VariableCallback('variable');
 $callback('new value');
@@ -13,10 +15,8 @@ function doEcho($param){
 
 $callback = new \aw\callbacks\FunctionCallback('doEcho');
 $callback('####'); // My name is: ####
-```
-All wrappers are callables, so can be used directly as closure.
-CallableCollection accepts any callable including PHP closures.
-```php
+
+
 function multiply4($value){
   return $value*4;
 }
@@ -30,4 +30,3 @@ $collection[] = function($value){
 };
 $collection[] = new \aw\callbacks\FunctionCallback('multiply4');
 echo 'Result: '.$collection(2).PHP_EOL; // Result: 48
-```

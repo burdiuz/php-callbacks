@@ -35,15 +35,16 @@ namespace aw{
     }
 
     public function hasItem(callable $item):bool {
-      return (bool)array_search($item, $this->_items, true);
+      return is_int(array_search($item, $this->_items, true));
     }
 
-    public function getItemAt(int $index):callable {
-      return isset($this->_items[$index]) ? $this->_items[$index] : false;
+    public function getItemAt(int $index) {
+      return isset($this->_items[$index]) ? $this->_items[$index] : null;
     }
 
     public function getItemIndex(callable $item):int {
-      return array_search($item, $this->_items, true) || -1;
+      $index = array_search($item, $this->_items, true);
+      return is_int($index) ? $index : -1;
     }
 
     public function removeItem(callable $item) {
@@ -54,12 +55,12 @@ namespace aw{
       return $item;
     }
 
-    public function removeItemAt($index):callable {
+    public function removeItemAt($index) {
       $callback = $this->_items[$index];
       if ($callback) {
         array_splice($this->_items, $index, 1);
       }
-      return $callback || false;
+      return $callback ? $callback : null;
     }
 
     public function removeAll() {

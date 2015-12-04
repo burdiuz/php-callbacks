@@ -12,7 +12,7 @@ namespace aw {
       foreach($this as $callable){
         $value = [$callable(...$value)];
       }
-      return $value;
+      return $value[0];
     }
   }
 }

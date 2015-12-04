@@ -26,10 +26,10 @@
             <file>tests/aw/CallableCollectionTest.php</file>
         </testsuite>
         <testsuite name="aw\CallableQueue">
-            <file>tests/aw/CallableCollectionTest.php</file>
+            <file>tests/aw/CallableQueueTest.php</file>
         </testsuite>
         <testsuite name="aw\CallableSequence">
-            <file>tests/aw/CallableCollectionTest.php</file>
+            <file>tests/aw/CallableSequenceTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>

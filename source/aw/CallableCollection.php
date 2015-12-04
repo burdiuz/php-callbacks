@@ -26,12 +26,7 @@ namespace aw{
     }
 
     public function setItem(int $index, callable $value) {
-      $count = $this->getCount();
-      if ($index <= $count) {
-        $this->_items[$index] = $value;
-      } else {
-        throw new InvalidArgumentException('Adding items only allowed with [] operator.');
-      }
+      $this->_items[$index] = $value;
     }
 
     public function hasItem(callable $item):bool {
@@ -57,10 +52,8 @@ namespace aw{
 
     public function removeItemAt($index) {
       $callback = $this->_items[$index];
-      if ($callback) {
-        array_splice($this->_items, $index, 1);
-      }
-      return $callback ? $callback : null;
+      unset($this->_items[$index]);
+      return $callback;
     }
 
     public function removeAll() {

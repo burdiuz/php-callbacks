@@ -80,6 +80,9 @@ namespace aw {
       $this->assertSame($this->handler3, $this->collection->getItemAt(0));
       $this->assertNotSame($this->handler1, $this->collection->getItemAt(0));
       $this->assertSame($this->handler2, $this->collection->getItemAt(1));
+      $this->collection->setItem(50, $this->handler3);
+      $this->assertSame($this->handler3, $this->collection->getItemAt(50));
+      $this->assertEquals(3, $this->collection->getCount());
     }
 
     public function testRemoveItems() {
@@ -88,26 +91,17 @@ namespace aw {
       $this->collection->removeItem($this->handler2);
       $this->assertEquals(2, $this->collection->getCount());
       $this->assertSame($this->handler1, $this->collection->getItemAt(0));
-      $this->assertSame($this->handler3, $this->collection->getItemAt(1));
+      $this->assertNull($this->collection->getItemAt(1));
+      $this->assertSame($this->handler3, $this->collection->getItemAt(2));
       $this->collection->removeItem($this->handler1);
-      $this->assertSame($this->handler3, $this->collection->getItemAt(0));
+      $this->assertNull($this->collection->getItemAt(0));
+      $this->assertNull($this->collection->getItemAt(1));
+      $this->assertSame($this->handler3, $this->collection->getItemAt(2));
       $this->collection->removeItem($this->handler3);
       $this->assertEquals(0, $this->collection->getCount());
-      $this->assertEquals(null, $this->collection->getItemAt(0));
-    }
-
-    public function testShiftIndices() {
-      $this->assertEquals(2, $this->collection->getCount());
-      $this->collection->removeItemAt(0);
-      $this->assertEquals(1, $this->collection->getCount());
-      $this->assertSame($this->handler2, $this->collection->getItemAt(0));
-      $this->collection->addItem($this->handler3);
-      $this->assertSame($this->handler2, $this->collection->getItemAt(0));
-      $this->assertSame($this->handler3, $this->collection->getItemAt(1));
-      $this->collection->removeItemAt(0);
-      $this->assertSame($this->handler3, $this->collection->getItemAt(0));
-      $this->collection->removeItemAt(0);
-      $this->assertSame(null, $this->collection->getItemAt(0));
+      $this->assertNull($this->collection->getItemAt(0));
+      $this->assertNull($this->collection->getItemAt(1));
+      $this->assertNull($this->collection->getItemAt(3));
     }
 
     public function testPopIndices() {
@@ -132,7 +126,7 @@ namespace aw {
     public function testList() {
       $this->assertEquals([$this->handler1, $this->handler2], $this->collection->getItems());
       $this->collection->removeItemAt(0);
-      $this->assertEquals([$this->handler2], $this->collection->getItems());
+      $this->assertEquals([1 => $this->handler2], $this->collection->getItems());
     }
   }
 }

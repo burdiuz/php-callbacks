@@ -19,7 +19,7 @@ namespace aw {
   }
 
   class IteratorAggregateItemsArrayTraitTest extends TestCase {
-    public $list = [1, 2, 3, 4, 9, 0];
+    public $list = [1, 2, 3, 4, 9, 0, 'first' => 1, 'second' => 2];
     public $obj;
 
     public function setUp() {

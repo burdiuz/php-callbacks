@@ -18,24 +18,5 @@ namespace aw {
       $this->assertEmpty($collection->items);
       $this->assertEquals(0, $collection->count);
     }
-
-    /**
-     * @test
-     */
-    public function iteratorTest() {
-      $collection = new CallableCollection();
-      $collection[] = function () {
-      };
-      foreach ($collection as $key => $value) {
-
-      }
-    }
-
-    /**
-     * @test
-     */
-    public function arrayAccessTest() {
-
-    }
   }
 }

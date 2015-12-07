@@ -20,6 +20,14 @@ namespace aw\callbacks {
       $this->assertEquals('TEST 1', $variableTest1);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testMoreArgs() {
+      $callback = new VariableCallback('variableTest1');
+      $callback('TEST 1', 'TEST N');
+    }
+
     public function testStatic() {
       $callback = new VariableCallback('\\aw\\callbacks\\_MyVariableCallbackObject::$staticProperty');
       $callback('new value');

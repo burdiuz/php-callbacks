@@ -28,10 +28,14 @@ namespace aw\callbacks {
       $result = null;
       $args += $this->_defaultArgs;
       $func = $this->_func;
-      if (is_callable($func)) {
-        $result = $func(...$args);
-      } else {
-        $result = call_user_func_array($this->_func, $args);
+      if(is_callable($func)){
+        if (is_array($func)) {
+          $result = call_user_func_array($this->_func, $args);
+        } else {
+          $result = $func(...$args);
+        }
+      }else{
+        throw new \Exception('Only callables are allowed as target for FunctionCallback.');
       }
       return $result;
     }

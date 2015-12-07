@@ -7,6 +7,12 @@ namespace aw {
 
   use \PHPUnit_Framework_TestCase as TestCase;
 
+  class CallableCollectionAddTest_CallableCollectionCallable extends CallableCollection{
+    public function __invoke() {
+
+    }
+  }
+
   class CallableCollectionAddTest extends TestCase {
     public $collection;
     public function setUp(){
@@ -55,6 +61,21 @@ namespace aw {
       $this->handler3 = function(){
         return 3;
       };
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testAddSelf() {
+      $collection = new CallableCollectionAddTest_CallableCollectionCallable();
+      $collection->addItem($collection);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     */
+    public function testAddSame() {
+      $this->collection->addItem($this->handler1);
     }
 
     public function testGet() {

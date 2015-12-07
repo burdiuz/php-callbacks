@@ -9,10 +9,14 @@ namespace aw\callbacks {
     private $_name;
     private $_defaultArgs;
 
-    public function __construct($target, $name, array $defaultArgs = array()) {
+    public function __construct($target, string $name, array $defaultArgs = array()) {
       parent::__construct($target);
       $this->_name = $name;
       $this->_defaultArgs = $defaultArgs;
+    }
+
+    public function getName():string {
+      return $this->_name;
     }
 
     public function call(array $args = array()) {

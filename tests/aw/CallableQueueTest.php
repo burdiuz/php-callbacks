@@ -54,14 +54,16 @@ namespace aw {
 
     public function testShiftIndices() {
       $this->assertEquals(3, $this->collection->getCount());
-      $this->collection->removeItemAt(0);
+      $this->assertFalse($this->collection->removeItemAt(3));
+      $this->assertTrue($this->collection->removeItemAt(0));
       $this->assertEquals(2, $this->collection->getCount());
       $this->assertSame($this->handler2, $this->collection->getItemAt(0));
       $this->assertSame($this->handler3, $this->collection->getItemAt(1));
-      $this->collection->removeItemAt(0);
+      $this->assertTrue($this->collection->removeItemAt(0));
       $this->assertSame($this->handler3, $this->collection->getItemAt(0));
-      $this->collection->removeItemAt(0);
+      $this->assertTrue($this->collection->removeItemAt(0));
       $this->assertNull($this->collection->getItemAt(0));
+      $this->assertFalse($this->collection->removeItemAt(0));
     }
 
     public function testList() {

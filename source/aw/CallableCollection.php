@@ -3,7 +3,7 @@
  * Created by Oleg Galaburda on 03.12.15.
  */
 
-namespace aw{
+namespace aw {
 
   use \InvalidArgumentException;
   use \IteratorAggregate;
@@ -42,18 +42,19 @@ namespace aw{
       return is_int($index) ? $index : -1;
     }
 
-    public function removeItem(callable $item) {
+    public function removeItem(callable $item):bool {
+      $result = false;
       $index = $this->getItemIndex($item);
-      if ($index !== false) {
-        $this->removeItemAt($index);
+      if ($index >= 0) {
+        $result = $this->removeItemAt($index);
       }
-      return $item;
+      return $result;
     }
 
-    public function removeItemAt($index) {
-      $callback = $this->_items[$index];
+    public function removeItemAt($index):bool {
+      $result = isset($this->_items[$index]);
       unset($this->_items[$index]);
-      return $callback;
+      return $result;
     }
 
     public function removeAll() {

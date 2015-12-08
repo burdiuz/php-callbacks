@@ -81,6 +81,7 @@ namespace aw {
     public function testGet() {
       $this->assertSame($this->handler1, $this->collection->getItemAt(0));
       $this->assertSame($this->handler2, $this->collection->getItemAt(1));
+      $this->assertNull($this->collection->getItemAt(10));
     }
 
     public function testHas() {
@@ -109,33 +110,36 @@ namespace aw {
     public function testRemoveItems() {
       $this->collection->addItem($this->handler3);
       $this->assertEquals(3, $this->collection->getCount());
-      $this->collection->removeItem($this->handler2);
+      $this->assertTrue($this->collection->removeItem($this->handler2));
       $this->assertEquals(2, $this->collection->getCount());
       $this->assertSame($this->handler1, $this->collection->getItemAt(0));
       $this->assertNull($this->collection->getItemAt(1));
       $this->assertSame($this->handler3, $this->collection->getItemAt(2));
-      $this->collection->removeItem($this->handler1);
+      $this->assertTrue($this->collection->removeItem($this->handler1));
       $this->assertNull($this->collection->getItemAt(0));
       $this->assertNull($this->collection->getItemAt(1));
       $this->assertSame($this->handler3, $this->collection->getItemAt(2));
-      $this->collection->removeItem($this->handler3);
+      $this->assertTrue($this->collection->removeItem($this->handler3));
       $this->assertEquals(0, $this->collection->getCount());
       $this->assertNull($this->collection->getItemAt(0));
       $this->assertNull($this->collection->getItemAt(1));
       $this->assertNull($this->collection->getItemAt(3));
+      $this->assertFalse($this->collection->removeItem($this->handler3));
     }
 
     public function testPopIndices() {
       $this->collection->addItem($this->handler3);
       $this->assertEquals(3, $this->collection->getCount());
-      $this->collection->removeItemAt(2);
+      $this->assertTrue($this->collection->removeItemAt(2));
       $this->assertEquals(2, $this->collection->getCount());
+      $this->assertFalse($this->collection->removeItemAt(2));
       $this->assertSame($this->handler1, $this->collection->getItemAt(0));
       $this->assertSame($this->handler2, $this->collection->getItemAt(1));
-      $this->collection->removeItemAt(1);
+      $this->assertTrue($this->collection->removeItemAt(1));
       $this->assertSame($this->handler1, $this->collection->getItemAt(0));
-      $this->collection->removeItemAt(0);
+      $this->assertTrue($this->collection->removeItemAt(0));
       $this->assertSame(null, $this->collection->getItemAt(0));
+      $this->assertFalse($this->collection->removeItemAt(0));
     }
 
     public function testClear() {

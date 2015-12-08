@@ -19,12 +19,12 @@ namespace aw {
       }
     }
 
-    public function removeItemAt($index) {
-      $callback = $this->_items[$index];
-      if ($callback) {
+    public function removeItemAt($index):bool {
+      $result = isset($this->_items[$index]);
+      if ($result) {
         array_splice($this->_items, $index, 1);
       }
-      return $callback ? $callback : null;
+      return $result;
     }
 
     public function __invoke(...$args) {

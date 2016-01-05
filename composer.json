@@ -1,13 +1,22 @@
 {
   "name": "actualwave/callbacks",
   "description": "Family of callback wrappers with shared interface",
+  "keywords": ["wrapper", "callback", "interface", "callable", "object"],
+  "homepage": "https://github.com/burdiuz/php-callbacks",
   "version": "0.0.4",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Oleg Galaburda",
+      "email": "burdiuz@gmail.com",
+      "homepage": "http://actualwave.com",
+      "role": "Developer"
+    }
+  ],
   "minimum-stability": "dev",
+  "type": "library",
   "require":{
-	"php": ">=7.0.0"
-  },
-  "require": {
+	"php": ">=7.0.0",
     "actualwave/object": "0.0.*"
   },
   "require-dev": {

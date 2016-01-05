@@ -1,4 +1,6 @@
 ##PHP-Callbacks
+[![Build Status](https://travis-ci.org/burdiuz/php-callbacks.svg?branch=master)](https://travis-ci.org/burdiuz/php-callbacks)
+[![Coverage Status](https://coveralls.io/repos/burdiuz/php-callbacks/badge.svg?branch=master&service=github)](https://coveralls.io/github/burdiuz/php-callbacks?branch=master)
 
 Family of Callback Wrappers allowing to store chains of delayed calls that can be started by event.
 * FunctionCallback - calls global function or static method.

@@ -3,6 +3,8 @@
 [![Coverage Status](https://coveralls.io/repos/burdiuz/php-callbacks/badge.svg?branch=master&service=github)](https://coveralls.io/github/burdiuz/php-callbacks?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/568ba879eb4f47003c001399/badge.svg?style=flat)](https://www.versioneye.com/user/projects/568ba879eb4f47003c001399)
 
+[![Latest Stable Version](https://poser.pugx.org/actualwave/callbacks/v/stable)](https://packagist.org/packages/actualwave/callbacks) [![Total Downloads](https://poser.pugx.org/actualwave/callbacks/downloads)](https://packagist.org/packages/actualwave/callbacks) [![License](https://poser.pugx.org/actualwave/callbacks/license)](https://packagist.org/packages/actualwave/callbacks)
+
 Family of Callback Wrappers allowing to store chains of delayed calls that can be started by event.
 * FunctionCallback - calls global function or static method.
 * MethodCallback - calls instance or static method.

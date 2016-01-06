@@ -24,6 +24,14 @@ function doEcho($param){
 $callback = new \aw\callbacks\FunctionCallback('doEcho');
 $callback('####'); // My name is: ####
 ```
+
+### Installation
+Via [composer](https://getcomposer.org/)
+```
+composer require actualwave/callbacks
+```
+
+### Usage
 All wrappers are callables, so can be used directly as closure.
 CallableCollection accepts any callable including PHP closures.
 ```php
